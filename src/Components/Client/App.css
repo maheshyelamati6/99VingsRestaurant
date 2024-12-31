@@ -1,0 +1,293 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family:sans-serif;
+  }
+
+  
+  
+ .navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+ }
+
+  /*bootstrap */
+  .navbar{
+    background-color: rgb(182, 253, 77);
+  }
+
+
+  
+  /*bootstrap */
+  .navbar img{
+
+    height: 50px;
+    width: 90px;
+    
+  }
+ 
+
+.navbar li a{
+
+  color: black;
+}
+
+.navbar li a:hover{
+ 
+  text-decoration: underline;
+  text-decoration-color:white ;
+}
+  
+
+/* Homepage*/
+ 
+.bread{
+
+  margin-top: 80px;
+  padding: 5px;
+  
+}
+
+
+
+.breadcrumb {
+  margin: 2px;
+  background-color: beige;
+  height: 40px;
+  padding: 6px;
+  justify-content: center;
+ 
+}
+
+.subtitles{
+  display: flex;
+}
+
+.gifcontent{
+display: flex;
+}
+.gifcontent img{
+
+  height: 60px;
+  width: 80px;
+}
+
+.imagecentre img{
+
+  width: 300px;
+  height: 300px;
+  margin-left: 20px;
+}
+
+.thanks{
+
+  background-color: rgb(227, 239, 159);
+}
+
+.thanksimg img{
+
+  height: 300px;
+  width: 400px;
+  margin-left: 10px;
+}
+
+
+.arrows{
+  display: none;
+}
+
+.arrowbutton{
+  border-radius: 25px;
+}
+
+.textheader1{
+  text-align: center;
+}
+.carouselslist{
+
+  height: 400px;
+  width: 100%;
+  
+}
+.welcome{
+  margin-top: 90px;
+}
+.bannerimg{
+  z-index: -1;
+}
+
+.carouselslist{
+  border-radius: 20px;
+}
+
+.reviews{
+  display: flex;
+  border: 1px solid black;
+}
+
+.reviewsimg img{
+  height: 120px;
+  width: 100px;
+  
+}
+
+  /* Aboutus*/
+
+  .stepper {
+    .line {
+      width: 2px;
+      background-color: lightgrey !important;
+    }
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+ 
+  .textheader{
+
+    text-align: center;
+    color: orange;
+  }
+
+  .logodesc {
+
+    background-color: rgb(226, 244, 29);
+
+  }
+
+  .logodesc img{
+
+    height: 250px;
+    width: 100%;
+  }
+
+  .aboutusdesc{
+
+    padding: 13px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .aboutusdesc h1{
+    padding: 5px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .underline{
+    height: 2px;
+    background-color: black;
+     width: 20%;
+     margin-left: 40%;
+  }
+
+   .underline1{
+    height: 3px;
+    background-color: rgb(211, 230, 70);
+    width: 20%;
+    margin-left: 45%;
+     
+  }
+
+
+  .smallpromises{
+
+    background-color: bisque;
+  }
+
+  .smallpromises img{
+
+    height: 60px;
+    width: 60px;
+   
+  display: block;
+  margin: 0 auto;
+  }
+
+  .smallpromises p{
+
+    text-align: center;
+  }
+
+  .frame{
+    background-color: aliceblue;
+  }
+ 
+  .image img{
+    height: 250px;
+    width: 400px;
+  }
+
+
+
+   /* Gallery*/
+
+.cardsgallery{
+  z-index: -1;
+}
+  
+
+.cardsgallery.img:hover{
+  opacity: 1.3;
+}
+
+   .cardtitle{
+    background-color:yellow;
+    display: inline;
+   }
+
+
+  /* Contactus*/
+
+
+
+.tableform{
+  background-color: aqua;
+}
+
+
+
+.location img{
+  height: 30px;
+  width: 50px;
+}
+
+.Addresslocator{
+  display: flex;
+}
+
+.addressimage img{
+
+  height: 20px;
+  width: 40px;
+}
+
+  /* Footer*/
+
+.footers{
+  background-color: rgb(166, 240, 19);
+  align-items: center;
+}
+
+  .copyrights a{
+    text-decoration: none;
+    color: black;
+  }
+
+ .display{
+  display: flex;
+justify-content: end;
+ }
+
+
+ .display a{
+  text-transform: none;
+  color: black;
+ }
+
+ .display a:hover{
+  color: white;
+ }
