@@ -1,17 +1,13 @@
 import React from 'react';
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
-import { CButton, CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react';
-import { CImage } from '@coreui/react'
-
+import {CCard, CCardBody, CCardImage, CCardText, CCardTitle } from '@coreui/react';
 import img1 from "./Assessts/chickenpulao.jpg";
 import img2 from "./Assessts/chickenafghani.jpg";
 import img3 from "./Assessts/chickenjoint.jpg";
 import img4 from "./Assessts/chickenwings.jpg";
-import img5 from "./Assessts/chickenwings2.jpg";
 import img6 from "./Assessts/frenchfries.jpg";
 import img7 from "./Assessts/spagethi.avif";
 import img8 from "./Assessts/muttonpulao.avif";
-import img9 from "./Assessts/muttonbiryani.jpg";
 import img10 from "./Assessts/chickendoublemasala.avif";
 import "./App.css";
 

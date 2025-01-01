@@ -39,11 +39,11 @@ const Header = () => {
             </CNavItem>
 
             <CNavItem>
-              <CNavLink href="Aboutus">Aboutus</CNavLink>
+              <CNavLink href="/Aboutus">Aboutus</CNavLink>
             </CNavItem>
 
             <CNavItem>
-              <CNavLink href="Gallery">Gallery</CNavLink>
+              <CNavLink href="/Gallery">Gallery</CNavLink>
             </CNavItem>
 
             
@@ -58,7 +58,7 @@ const Header = () => {
               </CDropdownMenu>
             </CDropdown>
             <CNavItem>
-              <CNavLink href="ContactUs" >
+              <CNavLink href="/ContactUs" >
                 ContactUS
               </CNavLink>
             </CNavItem>

@@ -11,10 +11,10 @@ const Routing = () => {
     <div>
 <Routes>
 <Route path='/' element={<Homepage/>}/>
-<Route path='Aboutus' element={<Aboutus/>}/>
-<Route path='Footer' element={<Footer/>}/>
-<Route path="Gallery" element={<Gallery/>}/>
-<Route path="Contactus" element={<Contactus/>}/>
+<Route path='/Aboutus' element={<Aboutus/>}/>
+<Route path='/Footer' element={<Footer/>}/>
+<Route path="/Gallery" element={<Gallery/>}/>
+<Route path="/Contactus" element={<Contactus/>}/>
 </Routes>
     </div>
   )
