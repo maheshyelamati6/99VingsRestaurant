@@ -1,72 +1,61 @@
-import React, { useState } from 'react';
+import React,{useEffect} from 'react';
 import "./App.css";
-
-import {
-  CCollapse,
-  CContainer,
-  CDropdown,
-  CDropdownDivider,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-  CNavbar,
-  CNavbarBrand,
-  CNavbarNav,
-  CNavbarToggler,
-  CNavItem,
-  CNavLink,
-} from '@coreui/react'
-
+import {NavLink} from "react-router-dom";
+import $ from "jquery";
 import logo from "./Assessts/99 Vings.jpg";
 
 const Header = () => {
-  const [visible, setVisible] = useState(false)
+
+  useEffect(()=>{
+    $(document).on('Click','.navbar-nav',function(e) {
+      if( $(e.target).is('NavLink') ) {
+          $(this).collapse('hide');
+      }
+  });
+  },[])
+
   return (
-    <div>
+    <div className='container-fluid p-0'>
+
+ 
+<nav className="navbar navbar-expand-lg ">
+  <div className="container-fluid">
+    <NavLink className="navbar-brand" to="/"><img src={logo} alt="logoimg"/></NavLink>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul className="navbar-nav ">
+        <li className="nav-item">
+          <NavLink className="nav-link active"aria-current="page"  to="/">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link"  to="/AboutUs">AboutUs</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link"  to="/Gallery">Gallery</NavLink>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item"  href="#">VEG-ITEMS</a></li>
+            <li><a className="dropdown-item"  href="#">NON-VEG ITEMS</a></li>
+            <li><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item"  href="#">PARTY ORDERS</a></li>
+          </ul>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/ContactUs" >ContactUs</NavLink>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
 
 
-
-<CNavbar expand="lg" className="navbar">
-      <CContainer fluid>
-        <CNavbarBrand href="/"><img src={logo} alt="bannerimg"/></CNavbarBrand>
-        <CNavbarToggler onClick={() => setVisible(!visible)} />
-        <CCollapse className="navbar-collapse justify-content-end" visible={visible}>
-          <CNavbarNav className="navbar-nav">
-            <CNavItem>
-              <CNavLink href="/">
-                Home
-              </CNavLink>
-            </CNavItem>
-
-            <CNavItem>
-              <CNavLink href="/Aboutus">Aboutus</CNavLink>
-            </CNavItem>
-
-            <CNavItem>
-              <CNavLink href="/Gallery">Gallery</CNavLink>
-            </CNavItem>
-
-            
-
-            <CDropdown variant="nav-item" popper={false}>
-              <CDropdownToggle color="secondary">Menu Card</CDropdownToggle>
-              <CDropdownMenu>
-                <CDropdownItem href="#">VEG Items</CDropdownItem>
-                <CDropdownItem href="#">NON-VEG Items</CDropdownItem>
-                <CDropdownDivider />
-                <CDropdownItem href="#">Party Orders</CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
-            <CNavItem>
-              <CNavLink href="/ContactUs" >
-                ContactUS
-              </CNavLink>
-            </CNavItem>
-          </CNavbarNav>
-         
-        </CCollapse>
-      </CContainer>
-    </CNavbar>
 
 
 

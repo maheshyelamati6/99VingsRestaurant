@@ -29,6 +29,10 @@ body {
     width: 90px;
     
   }
+
+  .nav-link{
+    text-decoration: none;
+  }
  
 
 .navbar li a{
