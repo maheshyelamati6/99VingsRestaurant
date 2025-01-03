@@ -5,6 +5,10 @@ import Aboutus from './Aboutus';
 import Footer from './Footer';
 import Gallery from './Gallery';
 import Contactus from './Contactus';
+import Vegitems from './Vegitems';
+import Errorpage from './Errorpage';
+import Adminpage from './Admin/Adminpage';
+import AdminDashboard from './Admin/AdminDashboard';
 
 const Routing = () => {
   return (
@@ -12,9 +16,13 @@ const Routing = () => {
 <Routes>
 <Route path='/' element={<Homepage/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
-<Route path='/Footer' element={<Footer/>}/>
+<Route path='/Vegitems' element={<Vegitems/>}/>
+<Route path="*" element={<Errorpage/>}/>
 <Route path="/Gallery" element={<Gallery/>}/>
 <Route path="/Contactus" element={<Contactus/>}/>
+<Route path='/Footer' element={<Footer/>}/>
+<Route path="/99mandiadmin" element={<Adminpage/>}/>
+<Route path="/99mandiadmindashboard" element={<AdminDashboard/>}/>
 </Routes>
     </div>
   )

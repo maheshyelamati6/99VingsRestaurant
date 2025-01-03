@@ -37,10 +37,10 @@ const Header = () => {
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Main Menu
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item"  href="#">VEG-ITEMS</a></li>
+            <li><NavLink className="dropdown-item"  to="/Vegitems">VEG-ITEMS</NavLink></li>
             <li><a className="dropdown-item"  href="#">NON-VEG ITEMS</a></li>
             <li><hr className="dropdown-divider"/></li>
             <li><a className="dropdown-item"  href="#">PARTY ORDERS</a></li>

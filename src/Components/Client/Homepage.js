@@ -137,9 +137,9 @@ we always prioritize quality.</h6>
         <div className='underline1 py-1'></div>
         <div className='underline p-0'></div>
        
-       <div className='container  my-2'>
+       <div className='container-fluid my-2'>
         <div className='row'>
-          <div className='col-md-4 reviews px-1 my-1 '>
+          <div className='col-md-4 reviews px-1 my-1'>
             <div className='reviewsimg p-2'>
            <img src={men3} alt="reviews"/>
             </div>
@@ -151,7 +151,7 @@ we always prioritize quality.</h6>
 
           <div className='col-md-4 reviews px-1 my-1 '>
             <div className='reviewsimg p-2'>
-<img src={men1} alt="reviews"/>
+            <img src={men1} alt="reviews"/>
             </div>
             <div>
               <p>Went to Restaurant with Local Friend Suggestion,Food is Good and the Service is Amazing with Reasonable Pricing. </p>

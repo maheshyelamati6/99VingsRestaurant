@@ -269,6 +269,25 @@ display: flex;
   width: 40px;
 }
 
+ /* Admin page*/
+
+.imagesection{
+
+  display: flex;
+}
+
+.imagesection img{
+
+  width: 800px;
+  height: 800px;
+}
+
+
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+
   /* Footer*/
 
 .footers{
