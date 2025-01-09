@@ -227,18 +227,38 @@ display: flex;
 
 
   /* NonVeg Items*/
+.searchcontents:hover{
+  width:450px;
+  margin: 4px;
+}
 
-  .imagedesc img{
 
-    width: 400px;
-    height: 250px;
-  }
+.boxborder{
 
-.imagesections{
+  border: 1px solid rgb(8, 8, 8);
+  display: flex;
+  width: auto;
+}
+.imgsection img{
 
   width: 200px;
-  height: 100px;
+  height: 200px;
 }
+
+
+/* Party Order*/
+
+.itemsgrid{
+  border: 1px solid black;
+  
+}
+.imagebanner img{
+  height: 300px;
+  width: 300px;
+}
+
+
+
    /* Gallery*/
 
 .cardsgallery{

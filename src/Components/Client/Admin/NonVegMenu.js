@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import {get,ref} from "firebase/database";
+import {get,ref,remove} from "firebase/database";
 import database from '../firebase';
 import logo from "../Assessts/chickencartoon.avif";
 import "../App.css";
@@ -11,7 +11,11 @@ const NonVegMenu = () => {
   const[code,Setcode]=useState('');
   const[course,Setcourse]=useState('');
   const[imgpath,Setimgpath]=useState('');
+  const[imgpath2,Setimgpath2]=useState('');
+  const[imgpath3,Setimgpath3]=useState('');
   const[desc,Setdesc]=useState('');
+  const[price,Setprice]=useState('');
+  const[quantity,Setquantity]=useState('');
 
   const[postdata,Setpostdata]=useState([]);
   
@@ -32,19 +36,27 @@ const NonVegMenu = () => {
         alert("Course Option is Required");
       }
 
+      else if(price.length===0){
+        alert(" Price Amount is Required");
+      }
+
       else if(desc.length===0){
         alert("Description is Required");
       }
 
       else{
-    axios.post("https://vings-43c54-default-rtdb.firebaseio.com/NonVegItems.json",{dishname,code,course,imgpath,desc})
+    axios.post("https://vings-43c54-default-rtdb.firebaseio.com/NonVegItems.json",{dishname,code,course,imgpath,desc,price,quantity})
     .then(()=>{
       alert("Data Posted Successfully!....");
       Setdishname("");
       Setcode("");
       Setcourse("");
       Setimgpath("");
+      Setimgpath2("");
+      Setimgpath3("");
       Setdesc("");
+      Setprice("");
+      Setquantity("");
       })
 
       .catch((err)=>{
@@ -53,6 +65,7 @@ const NonVegMenu = () => {
       })
       }
 
+      window.location.reload();
   }
 
   useEffect(()=>{
@@ -78,11 +91,24 @@ const NonVegMenu = () => {
 
   },[])
 
+  const deletedata=()=>{
+    remove(ref(database,'NonVegItems/'))
+    .then(()=>{
+      alert("Data Record Deleted Successfully");
+    })
+
+    .catch((err)=>{
+    console.log(err);
+    })
+    window.location.reload();
+  }
 
 
   return (
     <div className='container-fluid p-0'>
       <h4>Non-VegMenu</h4>
+
+      
         <div className='formbuild'>
            <div className='col-md-5'>
            <form>
@@ -106,9 +132,38 @@ const NonVegMenu = () => {
   </select>
 </div>
 
+
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Enter Quantity</label>
+  <select class="form-select" id="inputGroupSelect01" value={quantity} onChange={(e)=>Setquantity(e.target.value)}>
+    <option selected>Choose...</option>
+    <option value="Half-Plate">Half-Plate</option>
+    <option value="Full-Plate">Full-Plate</option>
+    
+  </select>
+</div>
+
+<div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Enter Price</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={price} onChange={(e)=>Setprice(e.target.value)}/>
+            </div>
+
+          
+
             <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Enter Img Path</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={imgpath} onChange={(e)=>Setimgpath(e.target.value)}/>
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Enter Img Path</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={imgpath2} onChange={(e)=>Setimgpath2(e.target.value)}/>
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Enter Img Path</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={imgpath3} onChange={(e)=>Setimgpath3(e.target.value)}/>
             </div>
 
             <div class="input-group input-group-sm mb-3">
@@ -125,6 +180,7 @@ const NonVegMenu = () => {
              </div>
         </div>
        
+      
 
        <div className='container-fluid p-0'>
         <h4>Table Data</h4>
@@ -147,7 +203,7 @@ const NonVegMenu = () => {
                         <h4>Course:-{bat.course} </h4>
                         <h6>Description:-{bat.desc} </h6>
                         <button className='btn btn-outline-success m-2'>Update</button>
-                        <button className='btn btn-outline-danger'>Delete</button>
+                        <button className='btn btn-outline-danger'onClick={deletedata} >Delete</button>
                     </div>
                
                 </div>

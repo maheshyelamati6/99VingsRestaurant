@@ -6,10 +6,10 @@ import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 
 const NonVegItems = () => {
 
-  const[displaydata,Setdisplaydata]           = useState([]);
+  const[displaydata,Setdisplaydata]=useState([]);
 
   useEffect(()=>{
-    const userArray                           = ref(database,'NonVegItems');
+    const userArray=ref(database,'NonVegItems');
     get(userArray).then((snapshot)=>{
       if(snapshot.exists()){
         const userArray=Object.entries(snapshot.val()).map(([id,data])=>({
@@ -19,7 +19,7 @@ const NonVegItems = () => {
       }
 
       else{
-        console.log('No Data Available');
+        alert('No Data Available');
       }
     })
 
@@ -32,55 +32,51 @@ const NonVegItems = () => {
   },[])
 
   return (
-    <div className                            = 'container-fluid p-0 '>
+    <div className='container-fluid p-0 '>
 
-        <div className                        = 'bread p-0'>
+        <div className='bread p-0'>
                      <CBreadcrumb>
-                     <CBreadcrumbItem href    = "/">Home</CBreadcrumbItem>
+                     <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
                      <CBreadcrumbItem active>Non-Veg Items</CBreadcrumbItem>
                     </CBreadcrumb>
                      </div>
 
-                     <table className         = 'table table-responsive p-5'>
+             <div className='container d-flex flex-column align-items-center my-2'>    
+        <input className="searchcontents" type="search" placeholder="Search by Course" aria-label="Search"/>
+        </div>   
+      
+{
 
-<div className                                = 'table'>
-<thead className                              = 'table-dark'>
-   <th>Course</th>
-   <th>Dish Name</th>
-   <th>Dish Code</th>
-   <th>Image</th>
+  displaydata.map((bat)=>{
 
- </thead>
+    return <tr key={bat.id}>
+      <div className='col boxborder m-2'>
 
- <tbody>
-   
-   {
-     displaydata.map((bat)=>{
-       return <tr key                         = {(bat.id)} className='my-2'>
-         <td><span className                  = 'bg-warning'>{bat.course}</span></td>
-         <td><span>{bat.dishname}</span></td>
-         <td>{bat.code}</td>
-         <td><img src                         = {bat.imgpath} className='imagesections' alt=""/></td>
-         
-       
-       </tr>
-     })
-   }
-   
-     
-
-  
- </tbody>
+<div className="imgsection p-2">
+  <img src={bat.imgpath} alt=""/>
 </div>
-</table>
+
+<div className='p-4'>
+  <h6>Course:{bat.course}</h6>
+  <h6>Dish Name:{bat.dishname}</h6>
+  <h6>Dish Code:{bat.code}</h6>
+  <h6>Quantity:{bat.quantity}</h6>
+  <h6>Price:{bat.price}</h6>
+</div>
+</div>
+    </tr>
+  })
+}
+
+
+          
+         
+
+
+                    
+                    
 
                   
-
-
-
-
-
-
 
     </div>
   )
