@@ -9,6 +9,8 @@ import Vegitems from './Vegitems';
 import Errorpage from './Errorpage';
 import Adminpage from './Admin/Adminpage';
 import AdminDashboard from './Admin/AdminDashboard';
+import NonVegItems from './NonVegItems';
+import PartyOrders from './PartyOrders';
 
 const Routing = () => {
   return (
@@ -17,6 +19,8 @@ const Routing = () => {
 <Route path='/' element={<Homepage/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
 <Route path='/Vegitems' element={<Vegitems/>}/>
+<Route path='/NonVegItems' element={<NonVegItems/>}/>
+<Route path='/PartyOrders' element={<PartyOrders/>}/>
 <Route path="*" element={<Errorpage/>}/>
 <Route path="/Gallery" element={<Gallery/>}/>
 <Route path="/Contactus" element={<Contactus/>}/>

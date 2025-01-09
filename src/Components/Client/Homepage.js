@@ -138,7 +138,7 @@ we always prioritize quality.</h6>
         <div className='underline p-0'></div>
        
        <div className='container-fluid my-2'>
-        <div className='row'>
+        <div className='row '>
           <div className='col-md-4 reviews px-1 my-1'>
             <div className='reviewsimg p-2'>
            <img src={men3} alt="reviews"/>

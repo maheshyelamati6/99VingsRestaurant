@@ -68,7 +68,7 @@ const Adminpage = () => {
 
         </div>
 
-        <div className='col-md-6 imagesection'>
+        <div className='col-md-6 imagesections'>
             <img src={welcome} alt="welcomepage"/>
 
         </div>

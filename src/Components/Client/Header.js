@@ -41,9 +41,9 @@ const Header = () => {
           </a>
           <ul className="dropdown-menu">
             <li><NavLink className="dropdown-item"  to="/Vegitems">VEG-ITEMS</NavLink></li>
-            <li><a className="dropdown-item"  href="#">NON-VEG ITEMS</a></li>
+            <li><NavLink className="dropdown-item"  to="/NonVegItems">NON-VEG ITEMS</NavLink></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item"  href="#">PARTY ORDERS</a></li>
+            <li><NavLink className="dropdown-item"  to="/PartyOrders">PARTY ORDERS</NavLink></li>
           </ul>
         </li>
         <li className="nav-item">

@@ -226,7 +226,19 @@ display: flex;
   }
 
 
+  /* NonVeg Items*/
 
+  .imagedesc img{
+
+    width: 400px;
+    height: 250px;
+  }
+
+.imagesections{
+
+  width: 200px;
+  height: 100px;
+}
    /* Gallery*/
 
 .cardsgallery{
@@ -286,6 +298,33 @@ display: flex;
 .vl {
   border-left: 6px solid green;
   height: 500px;
+}
+
+.imagesections img{
+
+  width: 800px;
+  height: 500px;
+}
+
+.formbuild{
+  display: flex;
+  padding: 5px;
+}
+
+.imageside img{
+ 
+  width: 400px;
+  height: 300px;
+}
+
+.boxsized{
+  border: 1px solid black;
+}
+
+.imagedata img{
+  padding: 5px;
+  width: 300px;
+  height: 200px;
 }
 
   /* Footer*/

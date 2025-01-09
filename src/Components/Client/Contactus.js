@@ -1,10 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 import location from "./Assessts/location.png";
 import mobile from "./Assessts/mobile.png";
 import email from "./Assessts/email.png";
 
 const Contactus = () => {
+
+  const[firstname,Setfirstname]=useState('');
+  const[lastname,Setlastname]=useState('');
+  const[mail,Setmail]=useState('');
+  const[mobilenumber,Setmobilenumber]=useState('');
+  const[message,Setmessage]=useState('');
+
+  const mobilevalidation = /^\d{10}$/;
+  const emailvalidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+  const handleChange=(e)=>{
+
+    e.preventDefault();
+
+    if(firstname.length===0){
+
+      alert("First name should not be Empty");
+
+    }
+    else if(lastname.length===0){
+
+      alert("Last name should not be Empty");
+    }
+
+    else if(!emailvalidation.test(mail)){
+      alert("EMail should  be Vaild");
+    }
+
+    else if(mobilenumber.length === 0){
+      alert("Mobile Number should not be Empty");
+    }
+
+   else if(!mobilevalidation.test(mobilenumber)){
+    alert("Mobile Number should be 10 Digits Only");
+   }
+
+    else if(message.length===0){
+      alert("please Enter Message");
+    }
+
+    else{
+      axios.post("https://vings-43c54-default-rtdb.firebaseio.com/Contacts.json",{firstname,lastname,mobilenumber,mail,message})
+      .then(()=>{
+
+        alert("Data Posted Successfully");
+        Setfirstname("");
+        Setlastname("");
+        Setmail("");
+        Setmobilenumber("");
+        Setmessage("");
+
+      })
+
+      .catch((err)=>{
+
+        console.log(err);
+      })
+    }
+
+    
+  }
+  
+
   return (
     <div className='container-fluid p-0'>
 
@@ -24,19 +89,19 @@ const Contactus = () => {
     <div className='row'>
     <h4>Enquiry Form</h4>
         <div className='col-md-7  tableform'>
-       <form>
+       <form onSubmit={handleChange}>
        <div class="row g-2 my-2">
        <div class="col-md">
        <div class="form">
        <label for="floatingInputGrid">First Name</label>
-      <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter First Name" />
+      <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter First Name" value={firstname} onChange={(e)=>Setfirstname(e.target.value)} />
       
     </div>
   </div>
   <div class="col-md">
     <div class="form">
     <label for="floatingInputGrid">Last Name</label>
-    <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter Last Name" />
+    <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter Last Name" value={lastname} onChange={(e)=>Setlastname(e.target.value)} />
     </div>
   </div>
 </div>
@@ -45,21 +110,21 @@ const Contactus = () => {
   <div class="col-md">
     <div class="form">
     <label for="floatingInputGrid">Mail ID</label>
-      <input type="mail" class="form-control" id="floatingInputGrid" placeholder="Enter Mail ID" />
+      <input type="mail" class="form-control" id="floatingInputGrid" placeholder="Enter Mail ID" value={mail} onChange={(e)=>Setmail(e.target.value)} />
      
     </div>
   </div>
   <div class="col-md">
     <div class="form">
     <label for="floatingInputGrid">Mobile Number</label>
-    <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter Mobile Number" />
+    <input type="text" class="form-control" id="floatingInputGrid" placeholder="Enter Mobile Number" value={mobilenumber} onChange={(e)=>Setmobilenumber(e.target.value)} />
     </div>
   </div>
 </div>
 
 <div class="form my-2">
 <label for="floatingTextarea2">Comments</label>
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" value={message} onChange={(e)=>Setmessage(e.target.value)}></textarea>
  
 </div>
 
