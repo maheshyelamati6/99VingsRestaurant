@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {get,ref,remove} from 'firebase/database';
+//import{doc,deleteDoc} from "firebase/firestore"
 
 
 import database from "../firebase";
@@ -8,11 +9,13 @@ const Contactusadminpage = () => {
 
 const [post, setPost] = useState([]);
 
+
+
  useEffect(()=>{
 
   const userref=ref(database,'Contacts');
   get(userref).then((snapshot)=>{
-    if(snapshot.exists){
+    if(snapshot.exists()){
       const Userarray=Object.entries(snapshot.val()).map(([id,data])=>({
         id,...data,
       }));
@@ -28,17 +31,20 @@ const [post, setPost] = useState([]);
  },[]);
 
 
- const deletedata =()=>{
-  remove(ref(database,'Contacts/'))
+ const deletedata=(id)=>{
+
+  remove(ref(database,'Contacts/'+id))
   .then(()=>{
-    alert("Data Deleted Successfully...!")
+    alert("Data Record Deleted.....!")
   })
+
   .catch((err)=>{
 
     console.log(err);
   })
-  window.location.reload();
  }
+  
+  
 
   return (
     <div>
@@ -66,7 +72,7 @@ const [post, setPost] = useState([]);
           <td>{bat.mail}</td>
           <td>{bat.mobilenumber}</td>
           <td>{bat.message}</td>
-          <td><button className='btn btn-outline-danger' onClick={deletedata} >Delete</button></td>
+          <td><button className='btn btn-outline-danger' onClick={()=>deletedata(bat.id)} >Delete</button></td>
           <td><button className='btn btn-outline-success'>Update</button></td>
         
         </tr>

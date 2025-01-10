@@ -65,7 +65,7 @@ const NonVegMenu = () => {
       })
       }
 
-      window.location.reload();
+      
   }
 
   useEffect(()=>{
@@ -91,8 +91,8 @@ const NonVegMenu = () => {
 
   },[])
 
-  const deletedata=()=>{
-    remove(ref(database,'NonVegItems/'))
+  const deletedata=(id)=>{
+    remove(ref(database,'NonVegItems/'+id))
     .then(()=>{
       alert("Data Record Deleted Successfully");
     })
@@ -193,17 +193,17 @@ const NonVegMenu = () => {
 
                <div className='container-fluid boxsized m-2'>
                 <div className='row'>
-                  <div className='col-md-4 imagedata'>
+                  <div className='col-md-5 imagedata p-2'>
                     <img src={bat.imgpath} alt=""/>
                   </div>
                     
-                    <div className='col-md-7'>
+                    <div className='col-md-7 p-5'>
                         <h4>Dish Name:-{bat.dishname} </h4>
                         <h4>Dish Code:-{bat.code} </h4>
                         <h4>Course:-{bat.course} </h4>
                         <h6>Description:-{bat.desc} </h6>
                         <button className='btn btn-outline-success m-2'>Update</button>
-                        <button className='btn btn-outline-danger'onClick={deletedata} >Delete</button>
+                        <button className='btn btn-outline-danger'onClick={()=>deletedata(bat.id)} >Delete</button>
                     </div>
                
                 </div>
