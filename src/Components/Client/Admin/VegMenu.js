@@ -53,6 +53,7 @@ const[displaydata,Setdisplaydata]=useState([]);
       Setimgpath("");
       Setimgpath2("");
       Setimgpath3("");
+      Setprice("");
       Setdesc("");
       })
 
@@ -61,7 +62,7 @@ const[displaydata,Setdisplaydata]=useState([]);
         console.log(err);
       })
       }
-      window.location.reload();
+     
   }
 
 

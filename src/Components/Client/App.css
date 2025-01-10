@@ -373,3 +373,13 @@ justify-content: end;
  .display a:hover{
   color: white;
  }
+
+ /* Media Screens */
+
+ @media screen and (min-width:480px){
+
+  .imagebanner img{
+    width: 250px;
+    height: 300px;
+  }
+ }

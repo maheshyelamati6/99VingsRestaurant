@@ -45,7 +45,7 @@ Setpartyorders(userArray);
       <div className='container'>
         <div className='row itemsgrid m-2'>
           <div className='col-6 imagebanner col-md-4'>
-           <img src={bat.imgpath} alt="" className='p-3'/>
+           <img src={bat.imgpath} alt="" className='partyimage p-3'/>
           </div>
 
           <div className='col-6 col-md-8 p-5'>

@@ -7,6 +7,7 @@ import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 const NonVegItems = () => {
 
   const[displaydata,Setdisplaydata]=useState([]);
+  const[search,Setsearch]=useState('');
 
   useEffect(()=>{
     const userArray=ref(database,'NonVegItems');
@@ -42,16 +43,20 @@ const NonVegItems = () => {
                      </div>
 
              <div className='container d-flex flex-column align-items-center my-2'>    
-        <input className="searchcontents" type="search" placeholder="Search by Course" aria-label="Search"/>
+        <input className="searchcontents" type="search" placeholder="Search by Course" aria-label="Search" onChange={(e)=>Setsearch(e.target.value)}/>
         </div>   
       
 {
 
-  displaydata.map((bat)=>{
+  displaydata.filter((bat)=>{
 
-    return <tr key={bat.id}>
+    return search.toLowerCase() === '' ? bat:bat.course.toLowerCase().includes(search) || search.toLowerCase() === '' ? bat:bat.dishname.toLowerCase().includes(search)
+  })
+  .map((bat,index)=>{
+
+    return <tr key={(index)}>
       <div className='col boxborder m-2'>
-
+    <h6>{index+1}</h6>
 <div className="imgsection p-2">
   <img src={bat.imgpath} alt=""/>
 </div>

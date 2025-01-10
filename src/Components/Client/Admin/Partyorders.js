@@ -53,7 +53,7 @@ const Partyorders = () => {
         console.log(err);
       })
       }
-      window.location.reload();
+     
   }
 
   useEffect(()=>{
@@ -61,14 +61,12 @@ const Partyorders = () => {
     const userArray=ref(database,'PartyOrders');
 
     get(userArray).then((snapshot)=>{
-      if(snapshot.exists){
+      if(snapshot.exists()){
 
         const userArray=Object.entries(snapshot.val()).map(([id,data])=>({
-        id,...data
+        id,...data,
         }));
-
         Setdisplaydata(userArray);
-
       }
 
       else{

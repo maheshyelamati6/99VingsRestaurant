@@ -81,7 +81,7 @@ const NonVegMenu = () => {
       }
 
       else{
-        console.log('No Data Available');
+        alert('No Data Available');
       }
     })
     .catch((err)=>{
@@ -100,7 +100,7 @@ const NonVegMenu = () => {
     .catch((err)=>{
     console.log(err);
     })
-    window.location.reload();
+   
   }
 
 

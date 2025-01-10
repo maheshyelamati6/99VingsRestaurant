@@ -12,16 +12,16 @@ const [post, setPost] = useState([]);
 
   const userref=ref(database,'Contacts');
   get(userref).then((snapshot)=>{
-    if(snapshot.exists()){
+    if(snapshot.exists){
       const Userarray=Object.entries(snapshot.val()).map(([id,data])=>({
         id,...data,
       }));
       setPost(Userarray);
     }
     else{
-      console.log('No Data Available')
+      alert('No Data Available')
     }
-  }) .catch((err)=>{
+  }).catch((err)=>{
     console.log(err);
   })
  
