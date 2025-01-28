@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
 import { CCarousel, CCarouselItem, CImage,CNavLink,CButton } from '@coreui/react';
 import "./App.css";
+
+import Welcome from "./Assessts/Welcome.png";
 import img2 from "./Assessts/image-2.jpg";
 import img3 from "./Assessts/image-3.avif";
 import men1 from "./Assessts/men-2.avif";
@@ -15,8 +19,64 @@ import imga3 from "./Assessts/img3.gif";
 import imga4 from "./Assessts/img4.gif";
 
 const Homepage = () => {
+  const [userLocation, setUserLocation] = useState(null);
+  const[show,Setshow]=useState(true);
+  const handleClose= ()=>Setshow(false);
+ 
+
+  useEffect(()=>{
+    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+      if (hasSeenPopup) {
+        Setshow(false);
+      } else {
+        localStorage.setItem('hasSeenPopup', 'true');
+      }
+    },[]);
+
+
+
+  const getUserLocation = () => {
+    // if geolocation is supported by the users browser
+    if (navigator.geolocation) {
+      // get the current users location
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // save the geolocation coordinates in three variables
+          const { latitude, longitude } = position.coords;
+             axios.post("https://vings-43c54-default-rtdb.firebaseio.com/Location.json",{latitude,longitude})
+          setUserLocation({ latitude, longitude});
+        },
+        // if there was an error getting the users location
+        (error) => {
+          console.error('Error getting user location:', error);
+        }
+      );
+    }
+    // if geolocation is not supported by the users browser
+    else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  };
+
   return (
+
     <div>
+
+<div className='container Mmodal' >
+
+   <Modal show={show} onHide={handleClose} id="myModal">
+   <div className='col-md-1'>
+          </div>
+        <Modal.Header closeButton onClick={getUserLocation}>
+          
+          <Modal.Title>
+            Welcome to 99 Mandi Restaurant</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please Explore our Range of Varities!</Modal.Body>
+        <img src={Welcome} alt="Welcome"/>
+      </Modal>
+   </div>
+
 
         <div className='container-fluid welcome '>
           <div className='row'>

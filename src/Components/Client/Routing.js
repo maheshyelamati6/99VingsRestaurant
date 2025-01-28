@@ -6,10 +6,12 @@ import Footer from './Footer';
 import Gallery from './Gallery';
 import Contactus from './Contactus';
 import Vegitems from './Vegitems';
+import Vegitemss from './Vegitemss';
 import Errorpage from './Errorpage';
 import Adminpage from './Admin/Adminpage';
 import AdminDashboard from './Admin/AdminDashboard';
 import NonVegItems from './NonVegItems';
+import NonVegitemss from './NonVegitemss';
 import PartyOrders from './PartyOrders';
 
 const Routing = () => {
@@ -19,7 +21,9 @@ const Routing = () => {
 <Route path='/' element={<Homepage/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
 <Route path='/Vegitems' element={<Vegitems/>}/>
+<Route path="Vegitemss/:id" element={<Vegitemss/>}/>
 <Route path='/NonVegItems' element={<NonVegItems/>}/>
+<Route path='NonVegitemss/:id' element={<NonVegitemss/>}/>
 <Route path='/PartyOrders' element={<PartyOrders/>}/>
 <Route path="*" element={<Errorpage/>}/>
 <Route path="/Gallery" element={<Gallery/>}/>

@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import {get,ref} from "firebase/database";
 import database from './firebase';
 import "./App.css";
@@ -55,11 +56,13 @@ const NonVegItems = () => {
   .map((bat,index)=>{
 
     return <tr key={(index)}>
-      <div className='col boxborder m-2'>
-    <h6>{index+1}</h6>
+      <div className='card-section m-2'>
+<NavLink to={`NonVegitemss/${(bat.id)}`}>
 <div className="imgsection p-2">
+<h6>{index+1}</h6>
   <img src={bat.imgpath} alt=""/>
 </div>
+</NavLink>
 
 <div className='p-4'>
   <h6>Course:{bat.course}</h6>

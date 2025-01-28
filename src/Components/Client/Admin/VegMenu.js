@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import{get,ref,remove} from "firebase/database";
+import{getDatabase,get,ref,remove,update} from "firebase/database";
 import database from '../firebase';
 import vegmenu from "../Assessts/vegcartton.jpg";
 
 const VegMenu = () => {
-
-const[displaydata,Setdisplaydata]=useState([]);
+  const[displaydata,Setdisplaydata]=useState([]);
+const[userid,Setuserid]=useState('');
   const[dishname,Setdishname]=useState('');
   const[code,Setcode]=useState('');
   const[course,Setcourse]=useState('');
@@ -40,28 +40,33 @@ const[displaydata,Setdisplaydata]=useState([]);
       else if(desc.length===0){
         alert("Description is Required");
       }
-
+      else if(imgpath.length===0){
+        alert("Image Field is Required");
+      }
 
 
       else{
-    axios.post("https://vings-43c54-default-rtdb.firebaseio.com/VegItems.json",{dishname,code,course,imgpath,desc,price,quantity})
-    .then(()=>{
-      alert("Data Posted Successfully!....");
-      Setdishname("");
-      Setcode("");
-      Setcourse("");
-      Setimgpath("");
-      Setimgpath2("");
-      Setimgpath3("");
-      Setquantity("");
-      Setprice("");
-      Setdesc("");
-      })
+    
+        axios.post("https://vings-43c54-default-rtdb.firebaseio.com/VegItems.json",{dishname,code,course,imgpath,desc,price,quantity,imgpath2,imgpath3})
+        .then(()=>{
+          alert("Data Posted Successfully!....");
+          Setdishname("");
+          Setcode("");
+          Setcourse("");
+          Setimgpath("");
+          Setimgpath2("");
+          Setimgpath3("");
+          Setquantity("");
+          Setprice("");
+          Setdesc("");
+          })
+    
+          .catch((err)=>{
+    
+            console.log(err);
+          })
 
-      .catch((err)=>{
-
-        console.log(err);
-      })
+      
       }
      
   }
@@ -87,7 +92,7 @@ const[displaydata,Setdisplaydata]=useState([]);
         alert("No Data Available");
       }
     })
-  },[])
+  },[userid])
 
   const deletedata=(id)=>{
     remove(ref(database,'VegItems/'+id))
@@ -101,13 +106,36 @@ const[displaydata,Setdisplaydata]=useState([]);
     
   }
 
+const UpdateData=()=>{
+  const db = getDatabase();
+  const recordRef = ref(db, 'VegItems/' + userid);
+
+  update(recordRef, {
+    data: code,course,imgpath,imgpath2,imgpath3,quantity,price,dishname,desc
+  })
+  .then(() => {
+    alert('Record updated successfully!');
+  })
+
+  .catch((error) => {
+    console.error('Error updating record:', error);
+  });
+}
+ 
+
+
+ 
+
+
+
 
   return (
     <div className='container-fluid p-0'>
         <h4>VegMenu</h4>
         <section className='formbuild'>
         <div className='col-md-5'>
-           <form>
+          <div className='boxshaped'>
+          <form>
             <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Enter Dish Name</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={dishname} onChange={(e)=>Setdishname(e.target.value)}/>
@@ -164,8 +192,9 @@ const[displaydata,Setdisplaydata]=useState([]);
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={desc} onChange={(e)=>Setdesc(e.target.value)}/>
             </div>
                
-               <button className='btn btn-outline-success mb-3' onClick={submitData}>Submit</button>
+               <button className='btn btn-outline-success m-3' onClick={submitData}>Submit</button>
             </form>
+          </div>
            </div>
   
              <div className='col-md-6 imageside p-2'>
@@ -192,7 +221,7 @@ displaydata.map((bat)=>{
             <h4>Dish Code:-{bat.code} </h4>
             <h4>Course:-{bat.course} </h4>
             <h6>Description:-{bat.desc} </h6>
-            <button className='btn btn-outline-success m-2'>Update</button>
+            <button className='btn btn-outline-success m-2' onClick={()=>UpdateData}>Edit</button>
             <button className='btn btn-outline-danger' onClick={()=>deletedata(bat.id)}>Delete</button>
         </div>
    

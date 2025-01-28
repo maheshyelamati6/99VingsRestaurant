@@ -218,11 +218,15 @@ display: flex;
 
   .frame{
     background-color: aliceblue;
+    height: auto;
   }
- 
-  .image img{
+  .aboutwe{
+
+    margin-right: 25px;
+  }
+  .imagesboss img{
     height: 250px;
-    width: 400px;
+    width: 300px;
   }
 
 
@@ -233,12 +237,26 @@ display: flex;
 }
 
 
-.boxborder{
-
-  border: 1px solid rgb(8, 8, 8);
-  display: flex;
-  width: auto;
+.card-section{
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid: 20px;
+  border: 1px solid black ;
 }
+
+.smallimages{
+  display: flex;
+  
+}
+
+
+
+.smallimage img{
+  width: 25px;
+  height: 25px;
+}
+
 .imgsection img{
 
   width: 200px;
@@ -381,5 +399,11 @@ justify-content: end;
   .imagebanner img{
     width: 250px;
     height: 300px;
+  }
+
+  .imagesboss img{
+
+    width: 350px;
+
   }
  }

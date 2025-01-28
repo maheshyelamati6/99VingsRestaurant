@@ -35,6 +35,10 @@ const Partyorders = () => {
         alert("Description is Required");
       }
 
+      else if(imgpath.length===0){
+        alert("Image Field is Required");
+      }
+
       else{
     axios.post("https://vings-43c54-default-rtdb.firebaseio.com/PartyOrders.json",{dishname,code,course,imgpath,desc})
     .then(()=>{

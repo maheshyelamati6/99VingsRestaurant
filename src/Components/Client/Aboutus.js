@@ -133,28 +133,25 @@ const Aboutus = () => {
      <div className='underline1 py-1'></div>
 
 
-      <div className='container partners p-5  '>
-        <div className='row'>
-          <div className='col-md-6 frame m-1 '>
-           <div className='image p-3'>
-            <img src={boss1} alt="boss1"/>
-           </div>
-            <h2>Mr.Innamuri AjayKumar</h2>
-            <h3>Owner</h3>
+     <div className='container aboutwe my-2'>
+      <div className='row'>
+        <div className='col-md-5 frame imagesboss m-2 p-5'>
+         <div className='col-md-4'>
+         <img src={boss1} alt=""/>
+         </div>
+        <h4>Mr.Innamuri Gopi</h4>
+        <h4>Director</h4>
+        </div>
 
-          </div>
-
-          <div className='col-md-5 frame m-1'>
-          <div className='image p-3'>
-            <img src={boss2} alt="boss1"/>
-            <h2>Mr.Innamuri Gopi</h2>
-            <h3>Owner</h3>
-           </div>
-            </div>
-
-
+        <div className='col-md-5 frame imagesboss m-2 p-5'>
+        <div className='col-md-4'>
+         <img src={boss2} alt=""/>
+         </div>
+        <h4>Mr.Innamuri Gopi</h4>
+        <h4>Director</h4>
         </div>
       </div>
+     </div>
 
 
 

@@ -44,8 +44,12 @@ const NonVegMenu = () => {
         alert("Description is Required");
       }
 
+      else if(imgpath.length===0){
+        alert("Image is Required");
+      }
+
       else{
-    axios.post("https://vings-43c54-default-rtdb.firebaseio.com/NonVegItems.json",{dishname,code,course,imgpath,desc,price,quantity})
+    axios.post("https://vings-43c54-default-rtdb.firebaseio.com/NonVegItems.json",{dishname,code,course,imgpath,desc,price,quantity,imgpath2,imgpath3})
     .then(()=>{
       alert("Data Posted Successfully!....");
       Setdishname("");
