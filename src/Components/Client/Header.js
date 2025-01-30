@@ -25,29 +25,29 @@ const Header = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul className="navbar-nav ">
+      <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link active"aria-current="page"  to="/">Home</NavLink>
+          <NavLink className="nav-link" aria-current="page"   to="/"  exact={true} activeClassName="active">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link"  to="/AboutUs">AboutUs</NavLink>
+          <NavLink className="nav-link"  to="/AboutUs"  exact={true} activeClassName="active">AboutUs</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link"  to="/Gallery">Gallery</NavLink>
+          <NavLink className="nav-link"  to="/Gallery" exact={true} activeClassName="active">Gallery</NavLink>
         </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" exact={true} activeClassName="active">
             Main Menu
           </a>
           <ul className="dropdown-menu">
-            <li><NavLink className="dropdown-item"  to="/Vegitems">VEG-ITEMS</NavLink></li>
-            <li><NavLink className="dropdown-item"  to="/NonVegItems">NON-VEG ITEMS</NavLink></li>
+            <li><NavLink className="dropdown-item"  to="/Vegitems" exact={true} activeClassName="active">VEG-ITEMS</NavLink></li>
+            <li><NavLink className="dropdown-item"  to="/NonVegItems" exact={true} activeClassName="active">NON-VEG ITEMS</NavLink></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><NavLink className="dropdown-item"  to="/PartyOrders">PARTY ORDERS</NavLink></li>
+            <li><NavLink className="dropdown-item"  to="/PartyOrders" exact={true} activeClassName="active">PARTY ORDERS</NavLink></li>
           </ul>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/ContactUs" >ContactUs</NavLink>
+          <NavLink className="nav-link"  exact={true} activeClassName="active"  to="/ContactUs"  >ContactUs</NavLink>
         </li>
       </ul>
      

@@ -3,6 +3,7 @@ import {get,ref} from "firebase/database";
 import database from './firebase';
 import { useParams } from 'react-router-dom';
 
+
 const NonVegitemss = () => {
     const[displaydata,Setdisplaydata]=useState([]);
     const {id}=useParams();
@@ -22,7 +23,7 @@ const NonVegitemss = () => {
         })
 
 
-    },[id])
+    },[])
 
 
   return (
@@ -30,7 +31,8 @@ const NonVegitemss = () => {
 
          <div className='container'>
             <div className='row'>
-                <div className='col-md-5'>
+              
+                <div className='col-md-5' key={id}>
                     <img src={displaydata.imgpath} alt=""/>
                 </div>
 
@@ -43,9 +45,9 @@ const NonVegitemss = () => {
                    
                 </div>
             </div>
-
+              
          </div>
-
+         
     </div>
   )
 }

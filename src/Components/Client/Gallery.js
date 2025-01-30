@@ -22,7 +22,7 @@ const Gallery = () => {
              
                <CBreadcrumb>
                <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-               <CBreadcrumbItem active>Gallery</CBreadcrumbItem>
+               <CBreadcrumbItem>Gallery</CBreadcrumbItem>
               </CBreadcrumb>
                </div>
 <h2 className='textheader'>Signature Dishes of 99 Ving's </h2>

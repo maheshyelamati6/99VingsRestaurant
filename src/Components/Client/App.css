@@ -7,7 +7,9 @@ body {
     font-family:sans-serif;
   }
 
-  
+.active{
+  background-color: tomato;
+}
   
  .navbar{
   position: fixed;
@@ -236,10 +238,13 @@ display: flex;
   margin: 4px;
 }
 
+.indexes{
+  font-size: larger;
+}
 
 .card-section{
   padding: 5px;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(3,1fr);
   grid: 20px;
   border: 1px solid black ;
@@ -263,6 +268,11 @@ display: flex;
   height: 200px;
 }
 
+
+.paramsdesc{
+
+  margin-top: 90px;
+}
 
 /* Party Order*/
 

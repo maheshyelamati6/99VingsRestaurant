@@ -1,14 +1,18 @@
 import React,{useEffect, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+
 import {get,ref} from "firebase/database";
 import database from './firebase';
 import "./App.css";
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
+import { NavLink } from 'react-router-dom';
 
 const NonVegItems = () => {
 
   const[displaydata,Setdisplaydata]=useState([]);
   const[search,Setsearch]=useState('');
+
+
+ 
 
   useEffect(()=>{
     const userArray=ref(database,'NonVegItems');
@@ -39,7 +43,7 @@ const NonVegItems = () => {
         <div className='bread p-0'>
                      <CBreadcrumb>
                      <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-                     <CBreadcrumbItem active>Non-Veg Items</CBreadcrumbItem>
+                     <CBreadcrumbItem>Non-Veg Items</CBreadcrumbItem>
                     </CBreadcrumb>
                      </div>
 
@@ -57,34 +61,28 @@ const NonVegItems = () => {
 
     return <tr key={(index)}>
       <div className='card-section m-2'>
-<NavLink to={`NonVegitemss/${(bat.id)}`}>
-<div className="imgsection p-2">
-<h6>{index+1}</h6>
-  <img src={bat.imgpath} alt=""/>
+
+<div className="imgsection">
+<h6 className='indexes'>{index+1}</h6>
+ <NavLink to={`/NonVegitemss/${bat.id}`}>
+ <img src={bat.imgpath} alt=""/>
+ </NavLink>
 </div>
-</NavLink>
+
 
 <div className='p-4'>
-  <h6>Course:{bat.course}</h6>
-  <h6>Dish Name:{bat.dishname}</h6>
-  <h6>Dish Code:{bat.code}</h6>
-  <h6>Quantity:{bat.quantity}</h6>
-  <h6>Price:{bat.price}</h6>
+  <h6>Course: {bat.course}</h6>
+  <h6>Dish Name: {bat.dishname}</h6>
+  <h6>Dish Code: {bat.code}</h6>
+  <h6>Quantity: {bat.quantity}</h6>
+  <h6>Price: {bat.price}</h6>
+  
 </div>
 </div>
     </tr>
   })
 }
-
-
           
-         
-
-
-                    
-                    
-
-                  
 
     </div>
   )

@@ -4,15 +4,17 @@ import "./App.css";
 import database from './firebase';
 import {get,ref} from "firebase/database";
 import {NavLink} from 'react-router-dom';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const Vegitems = () => {
   const[displaydata,Setdisplaydata]=useState([]);
   const[search,Setsearch]=useState('');
 
+
  
 
   useEffect(()=>{
-const userArray=ref(database,'VegItems');
+const userArray=ref(database,"VegItems");
 get(userArray).then((snapshot)=>{
   if(snapshot.exists()){
    const userArray=Object.entries(snapshot.val()).map(([id,data])=>({
@@ -37,7 +39,7 @@ console.log(err);
        <div className='bread p-0'>
              <CBreadcrumb>
              <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-             <CBreadcrumbItem active>Vegitems</CBreadcrumbItem>
+             <CBreadcrumbItem >Vegitems</CBreadcrumbItem>
             </CBreadcrumb>
              </div>
 
@@ -55,16 +57,18 @@ displaydata.filter((bat)=>{
 .map((bat,index)=>{
 
   return <tr key={(index)}>
-    <div className='card-section m-2'>
 
-<NavLink to={`VegItems/${bat.id}`}>
-    <h6>{index+1}</h6>
+<div className='card-section m-2'>
+
+    <h6 className='indexes'>{index+1}</h6>
 <div className="imgsection p-2">
+<NavLink to={`/Vegitemss/${bat.id}`}>
 <img src={bat.imgpath} alt=""/>
-</div>
 </NavLink>
+</div>     
 
-<div className='p-4'>
+
+<div className='p-2'>
 <h6>Course:{bat.course}</h6>
 <h6>Dish Name:{bat.dishname}</h6>
 <h6>Dish Code:{bat.code}</h6>
@@ -73,12 +77,25 @@ displaydata.filter((bat)=>{
 
 </div>
 
-      
 </div>
+
   </tr>
 })
 }
+<div className="App">
+      <FloatingWhatsApp
+        phoneNumber="+91-7799254857"
+        accountName="99mandi Ongole"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        statusMessage='Online'
+      />
+    </div>
 
+
+    
     </div>
 
   

@@ -31,7 +31,7 @@ Setpartyorders(userArray);
         <div className='bread p-0'>
                              <CBreadcrumb>
                              <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-                             <CBreadcrumbItem active>Party Orders</CBreadcrumbItem>
+                             <CBreadcrumbItem>Party Orders</CBreadcrumbItem>
                             </CBreadcrumb>
                              </div>
 

@@ -22,7 +22,7 @@ const Aboutus = () => {
      
        <CBreadcrumb>
        <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-       <CBreadcrumbItem active>AboutUs</CBreadcrumbItem>
+       <CBreadcrumbItem>AboutUs</CBreadcrumbItem>
       </CBreadcrumb>
        </div>
 

@@ -77,7 +77,7 @@ const Contactus = () => {
      
        <CBreadcrumb>
        <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-       <CBreadcrumbItem active>ContactUs</CBreadcrumbItem>
+       <CBreadcrumbItem >ContactUs</CBreadcrumbItem>
       </CBreadcrumb>
        </div>
 

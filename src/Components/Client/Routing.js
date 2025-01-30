@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Routes} from 'react-router-dom';
+import {Routes,Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import Aboutus from './Aboutus';
 import Footer from './Footer';
@@ -14,16 +14,20 @@ import NonVegItems from './NonVegItems';
 import NonVegitemss from './NonVegitemss';
 import PartyOrders from './PartyOrders';
 
+
+
 const Routing = () => {
+
   return (
     <div>
+
 <Routes>
 <Route path='/' element={<Homepage/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
 <Route path='/Vegitems' element={<Vegitems/>}/>
-<Route path="Vegitemss/:id" element={<Vegitemss/>}/>
+<Route path='/Vegitemss/:id' element={<Vegitemss/>}/>
 <Route path='/NonVegItems' element={<NonVegItems/>}/>
-<Route path='NonVegitemss/:id' element={<NonVegitemss/>}/>
+<Route path='/NonVegItemss/:id' element={<NonVegitemss/>}/>
 <Route path='/PartyOrders' element={<PartyOrders/>}/>
 <Route path="*" element={<Errorpage/>}/>
 <Route path="/Gallery" element={<Gallery/>}/>
@@ -32,6 +36,7 @@ const Routing = () => {
 <Route path="/99mandiadmin" element={<Adminpage/>}/>
 <Route path="/99mandiadmindashboard" element={<AdminDashboard/>}/>
 </Routes>
+
     </div>
   )
 }

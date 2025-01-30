@@ -3,7 +3,6 @@ import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import { CCarousel, CCarouselItem, CImage,CNavLink,CButton } from '@coreui/react';
 import "./App.css";
-
 import Welcome from "./Assessts/Welcome.png";
 import img2 from "./Assessts/image-2.jpg";
 import img3 from "./Assessts/image-3.avif";
@@ -17,6 +16,7 @@ import imga1 from "./Assessts/img1.gif";
 import imga2 from "./Assessts/img2.gif";
 import imga3 from "./Assessts/img3.gif";
 import imga4 from "./Assessts/img4.gif";
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 const Homepage = () => {
   const [userLocation, setUserLocation] = useState(null);
@@ -80,17 +80,16 @@ const Homepage = () => {
 
         <div className='container-fluid welcome '>
           <div className='row'>
-
           <div className='col-md-7 p-1  bannerimg '>
           <CCarousel controls indicators>
       <CCarouselItem>
-        <CImage className="carouselslist" src={img3} alt="slide 1" />
+        <CImage className="carouselslist" src={img3} alt="slide 1"/>
       </CCarouselItem>
       <CCarouselItem>
-        <CImage className="carouselslist" src={img2} alt="slide 2" />
+        <CImage className="carouselslist" src={img2} alt="slide 2"/>
       </CCarouselItem>
       <CCarouselItem>
-        <CImage className="carouselslist" src={img8} alt="slide 3" />
+        <CImage className="carouselslist" src={img8} alt="slide 3"/>
       </CCarouselItem>
     </CCarousel>
             </div>
@@ -239,7 +238,16 @@ we always prioritize quality.</h6>
         
        
 
-
+<div className="App">
+      <FloatingWhatsApp
+        phoneNumber="+91-7799254857"
+        accountName="99mandi Ongole"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+      />
+</div>
 
     </div>
   )
