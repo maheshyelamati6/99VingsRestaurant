@@ -4,14 +4,20 @@ import database from './firebase';
 import "./App.css";
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 import { NavLink } from 'react-router-dom';
-import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import loadingimg from './Assessts/chickenloading.jpg';
 
 const NonVegItems = () => {
 
   const[displaydata,Setdisplaydata]=useState([]);
   const[search,Setsearch]=useState('');
+  const[loading,Isloading]=useState(true);
 
-
+  useEffect(()=>{
+    setTimeout(() => {
+      Isloading(false);
+    }, 3000);
+  })
  
 
   useEffect(()=>{
@@ -37,6 +43,9 @@ const NonVegItems = () => {
 
   },[])
 
+
+
+
   return (
     <div className='container-fluid p-0 '>
 
@@ -60,25 +69,39 @@ const NonVegItems = () => {
   .map((bat,index)=>{
 
     return <tr key={(index)}>
-      <div className='card-section m-2'>
+     
+     {
+      loading ?(
+        <div className='imagecentres' >
+         <img src={loadingimg} alt=""/>
 
-<div className="imgsection">
-<h6 className='indexes'>{index+1}</h6>
- <NavLink to={`/NonVegitemss/${bat.id}`} target="_blank" >
- <img src={bat.imgpath} alt=""/>
- </NavLink>
-</div>
+         <div className='textcentre'>
+          <h4>Loading.....!</h4>
+         </div>
+        </div>
+      ):(
+        <div className='card-section m-2'>
 
+        <div className="imgsection">
+        <h6 className='indexes'>{index+1}</h6>
+         <NavLink to={`/NonVegitemss/${bat.id}`} target="_blank" >
+         <img src={bat.imgpath} alt=""/>
+         </NavLink>
+        </div>
+        
+        
+        <div className='p-4'>
+          <h6>Course: {bat.course}</h6>
+          <h6>Dish Name: {bat.dishname}</h6>
+          <h6>Dish Code: {bat.code}</h6>
+          <h6>Quantity: {bat.quantity}</h6>
+          <h6>Price: {bat.price}</h6>
+          
+        </div>
+        </div>
+      )
+     }
 
-<div className='p-4'>
-  <h6>Course: {bat.course}</h6>
-  <h6>Dish Name: {bat.dishname}</h6>
-  <h6>Dish Code: {bat.code}</h6>
-  <h6>Quantity: {bat.quantity}</h6>
-  <h6>Price: {bat.price}</h6>
-  
-</div>
-</div>
     </tr>
   })
 }

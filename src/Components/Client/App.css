@@ -232,6 +232,31 @@ display: flex;
   }
 
 
+
+  .imagecentres img{
+
+    height: 100px;
+    width: 200px;
+    background-color: palegoldenrod;
+    
+}
+
+.imagecentres{
+
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.textcentre{
+  color: orange;
+  text-align: center;
+  
+  
+}
+
+
   /* NonVeg Items*/
 .searchcontents:hover{
   width:450px;

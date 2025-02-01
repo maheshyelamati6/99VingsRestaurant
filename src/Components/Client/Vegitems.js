@@ -4,12 +4,22 @@ import "./App.css";
 import database from './firebase';
 import {get,ref} from "firebase/database";
 import {NavLink} from 'react-router-dom';
+import vegfood from'./Assessts/indiancuisine.jpg';
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const Vegitems = () => {
   const[displaydata,Setdisplaydata]=useState([]);
   const[search,Setsearch]=useState('');
   
+  const [loading,Setisloading]=useState(true);
+
+  useEffect(()=>{
+
+    setTimeout(() => {
+      Setisloading(false);
+    }, 3000);
+    
+  })
 
  
 
@@ -62,7 +72,20 @@ displaydata.filter((bat)=>{
 
   return <tr key={(index)}>
 
-<div className='card-section m-2'>
+  {
+    loading ? (
+      <div className='imagecentres'> 
+
+      <img src={vegfood} alt=""/>  
+
+      <div className='centre' >
+        <h4 className='textcentre'> Loading.....! </h4>
+      </div>
+      </div>
+    
+
+    ):
+      <div className='card-section m-2'>
 
     <h6 className='indexes'>{index+1}</h6>
 <div className="imgsection p-2">
@@ -81,6 +104,9 @@ displaydata.filter((bat)=>{
 </div>
 
 </div>
+    
+    
+  }
 
   </tr>
 })

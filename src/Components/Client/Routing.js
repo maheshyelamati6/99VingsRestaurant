@@ -5,13 +5,15 @@ import Aboutus from './Aboutus';
 import Footer from './Footer';
 import Gallery from './Gallery';
 import Contactus from './Contactus';
+
 import Vegitems from './Vegitems';
+import NonVegItems from './NonVegItems';
+
 import Vegitemss from './Vegitemss';
+import NonVegitemss from './NonVegitemss';
 import Errorpage from './Errorpage';
 import Adminpage from './Admin/Adminpage';
 import AdminDashboard from './Admin/AdminDashboard';
-import NonVegItems from './NonVegItems';
-import NonVegitemss from './NonVegitemss';
 import PartyOrders from './PartyOrders';
 
 
