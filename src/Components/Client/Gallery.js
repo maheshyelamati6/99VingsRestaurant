@@ -10,6 +10,7 @@ import img7 from "./Assessts/spagethi.avif";
 import img8 from "./Assessts/muttonpulao.avif";
 import img10 from "./Assessts/chickendoublemasala.avif";
 import "./App.css";
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 
 const Gallery = () => {
@@ -153,6 +154,22 @@ const Gallery = () => {
 
   </div>
 </div>
+
+
+<div className="App">
+      <FloatingWhatsApp
+        phoneNumber="+91-7799254857"
+        accountName="99mandi Ongole"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        statusMessage='Online'
+      />
+    </div>
+
+
+
 
 
     </div>

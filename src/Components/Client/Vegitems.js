@@ -9,7 +9,7 @@ import { FloatingWhatsApp } from 'react-floating-whatsapp'
 const Vegitems = () => {
   const[displaydata,Setdisplaydata]=useState([]);
   const[search,Setsearch]=useState('');
-
+  
 
  
 
@@ -33,6 +33,10 @@ console.log(err);
 })
 
   },[])
+
+
+  
+
   return (
     <div>
 
@@ -62,7 +66,7 @@ displaydata.filter((bat)=>{
 
     <h6 className='indexes'>{index+1}</h6>
 <div className="imgsection p-2">
-<NavLink to={`/Vegitemss/${bat.id}`}>
+<NavLink to={`/Vegitemss/${bat.id}`} target="_blank">
 <img src={bat.imgpath} alt=""/>
 </NavLink>
 </div>     
@@ -74,7 +78,6 @@ displaydata.filter((bat)=>{
 <h6>Dish Code:{bat.code}</h6>
 <h6>Quantity:{bat.quantity}</h6>
 <h6>Price:{bat.price}</h6>
-
 </div>
 
 </div>

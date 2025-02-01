@@ -4,6 +4,7 @@ import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 import location from "./Assessts/location.png";
 import mobile from "./Assessts/mobile.png";
 import email from "./Assessts/email.png";
+import {FloatingWhatsApp} from 'react-floating-whatsapp'
 
 const Contactus = () => {
 
@@ -182,9 +183,21 @@ const Contactus = () => {
 </div>
 </div>
 
-</div>
 
-    
+<div className="App">
+      <FloatingWhatsApp
+        phoneNumber="+91-7799254857"
+        accountName="99mandi Ongole"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        statusMessage='Online'
+      />
+    </div>
+
+</div>
+  
   )
 }
 

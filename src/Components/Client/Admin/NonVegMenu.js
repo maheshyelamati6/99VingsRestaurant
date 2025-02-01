@@ -179,7 +179,7 @@ const NonVegMenu = () => {
             </form>
            </div>
   
-             <div className='col-md-6 imageside p-0'>
+             <div className='col-md-6 imageside p-5'>
 <img src={logo} alt="itemcartoon"/>
              </div>
         </div>
@@ -201,7 +201,7 @@ const NonVegMenu = () => {
                     <img src={bat.imgpath} alt=""/>
                   </div>
                     
-                    <div className='col-md-7 p-5'>
+                    <div className='col-md-7 p-2'>
                         <h4>Dish Name:-{bat.dishname} </h4>
                         <h4>Dish Code:-{bat.code} </h4>
                         <h4>Course:-{bat.course} </h4>

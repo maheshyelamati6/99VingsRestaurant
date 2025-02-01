@@ -194,8 +194,8 @@ we always prioritize quality.</h6>
  </div>
         
         <h3 className='textheader p-2'>Feedback from Customer's</h3>
-        <div className='underline1 py-1'></div>
         <div className='underline p-0'></div>
+        <div className='underline1 py-1'></div>
        
        <div className='container-fluid my-2'>
         <div className='row '>
@@ -204,8 +204,8 @@ we always prioritize quality.</h6>
            <img src={men3} alt="reviews"/>
             </div>
             <div>
-              <p>Went to Dinner and the Food is Good,Tried the Signature Dish Suggested by the Employee and is Good. </p>
-              <h6 className='m-2 cardtitle'>MR. Matt Damon</h6>
+              <p className='p-1'>Went to Dinner and the Food is Good,Tried the Signature Dish Suggested by the Employee and is Good. </p>
+              <h6 className='m-1 cardtitle'>MR. Matt Damon</h6>
             </div>
           </div>
 
@@ -214,8 +214,8 @@ we always prioritize quality.</h6>
             <img src={men1} alt="reviews"/>
             </div>
             <div>
-              <p>Went to Restaurant with Local Friend Suggestion,Food is Good and the Service is Amazing with Reasonable Pricing. </p>
-              <h6 className='m-2 cardtitle'>MR. Chandra</h6>
+              <p className='p-1'>Went to Restaurant with Local Friend Suggestion,Food is Good and the Service is Amazing with Reasonable Pricing. </p>
+              <h6 className='m-1 cardtitle'>MR. Chandra</h6>
             </div>
           </div>
 
@@ -224,8 +224,8 @@ we always prioritize quality.</h6>
 <img src={men2} alt="reviews"/>
             </div>
             <div>
-              <p>Pleasant Dining and the Ambience is Good and Service is Awesome and Tried the Classical Items Suggested by the Employee.</p>
-              <h6 className='m-2 cardtitle'>MR.Raviteja</h6>
+              <p className='p-1'>Pleasant Dining and the Ambience is Good and Service is Awesome and Tried the Classical Items Suggested by the Employee.</p>
+              <h6 className='m-1 cardtitle'>MR.Raviteja</h6>
             </div>
           </div>
 

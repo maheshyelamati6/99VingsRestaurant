@@ -1,10 +1,10 @@
 import React,{useEffect, useState} from 'react';
-
 import {get,ref} from "firebase/database";
 import database from './firebase';
 import "./App.css";
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 import { NavLink } from 'react-router-dom';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const NonVegItems = () => {
 
@@ -64,7 +64,7 @@ const NonVegItems = () => {
 
 <div className="imgsection">
 <h6 className='indexes'>{index+1}</h6>
- <NavLink to={`/NonVegitemss/${bat.id}`}>
+ <NavLink to={`/NonVegitemss/${bat.id}`} target="_blank" >
  <img src={bat.imgpath} alt=""/>
  </NavLink>
 </div>
@@ -82,6 +82,20 @@ const NonVegItems = () => {
     </tr>
   })
 }
+
+
+
+<div className="App">
+      <FloatingWhatsApp
+        phoneNumber="+91-7799254857"
+        accountName="99mandi Ongole"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        statusMessage='Online'
+      />
+    </div>
           
 
     </div>

@@ -197,7 +197,7 @@ const UpdateData=()=>{
           </div>
            </div>
   
-             <div className='col-md-6 imageside p-2'>
+             <div className='col-md-6 imageside p-5'>
               <img src={vegmenu} alt="vegcartoon"/>
              </div>
         </section>

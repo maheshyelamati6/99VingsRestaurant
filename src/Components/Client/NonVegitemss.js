@@ -12,7 +12,7 @@ const NonVegitemss = () => {
         const userArray=ref(database,'NonVegItems');
      get(userArray).then((snapshot)=>{
             if(snapshot.exists()){
-                const userArray=Object.entries().val().map(([id,data])=>({
+                const userArray=Object.entries(snapshot.val()).map(([id,data])=>({
                     id,...data,
                 }));
                 Setdisplaydata(userArray);
@@ -29,10 +29,10 @@ const NonVegitemss = () => {
   return (
     <div>
 
-         <div className='container'>
+         <div className='container paramsdesc'>
             <div className='row'>
               
-                <div className='col-md-5' key={id}>
+                <div className='col-md-5'>
                     <img src={displaydata.imgpath} alt=""/>
                 </div>
 

@@ -33,15 +33,15 @@ const Aboutus = () => {
        <div className='container-fluid'>
         <div className='row'>
           <div className='col-md-8'>
-          <div class="stepper d-flex flex-column mt-5 ml-2 p-3">
+          <div class="stepper d-flex flex-column mt-5 ml-2 p-4">
     <div class="d-flex mb-1">
       <div class="d-flex flex-column pr-4 align-items-center">
         <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
         <div class="line h-100"></div>
       </div>
       <div>
-        <h5 class="text-dark">We Expanded our Restaurent Chain in Various Locations in A.P</h5>
-        <p class="lead text-muted pb-3">Currently,We Have Restaurent's in Ongole & Narasaraopet.</p>
+        <h5 class="text-dark">We Expanded our Restaurant Chain in Various Locations in A.P</h5>
+        <p class="lead text-muted pb-3">Currently,We Have Restaurant's in Ongole & Narasaraopet.</p>
       </div>
     </div>
     <div class="d-flex mb-1">
@@ -50,8 +50,8 @@ const Aboutus = () => {
         <div class="line h-100"></div>
       </div>
       <div>
-        <h5 class="text-dark">At 2015, We Started a Restaurent called 99 Ving's</h5>
-        <p class="lead text-muted pb-3">Our First Priority is to Have a Luxury Restaurent and to Offer Candle Light Dinner Facility. </p>
+        <h5 class="text-dark">At 2015, We Started a Restaurant called 99 Ving's</h5>
+        <p class="lead text-muted pb-3">Our First Priority is to Have a Luxury Restaurant and to Offer Candle Light Dinner Facility. </p>
       </div>
     </div>
     <div class="d-flex mb-1">
@@ -152,15 +152,6 @@ const Aboutus = () => {
         </div>
       </div>
      </div>
-
-
-
-
-
-
-
-
-
 
     </div>
   )
