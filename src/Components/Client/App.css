@@ -252,10 +252,14 @@ display: flex;
 .textcentre{
   color: orange;
   text-align: center;
-  
-  
+
 }
 
+
+.smallimages{
+  height: 100px;
+  width: 100px;
+}
 
   /* NonVeg Items*/
 .searchcontents:hover{

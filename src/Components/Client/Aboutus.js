@@ -25,7 +25,9 @@ const Aboutus = () => {
        <CBreadcrumbItem>AboutUs</CBreadcrumbItem>
       </CBreadcrumb>
        </div>
-
+        <div data-testid="Started">
+        <h4>AboutUs Started</h4>
+        </div>
        <h2 className='textheader p-2'>How We Started</h2>
        <div className='underline p-0 '></div>
        <div className='underline1 py-1'></div>
@@ -41,7 +43,7 @@ const Aboutus = () => {
       </div>
       <div>
         <h5 class="text-dark">We Expanded our Restaurant Chain in Various Locations in A.P</h5>
-        <p class="lead text-muted pb-3">Currently,We Have Restaurant's in Ongole & Narasaraopet.</p>
+        <p class="lead text-muted pb-3" data-testid="Restaurant">Currently,We Have Restaurant's in Ongole & Narasaraopet.</p>
       </div>
     </div>
     <div class="d-flex mb-1">

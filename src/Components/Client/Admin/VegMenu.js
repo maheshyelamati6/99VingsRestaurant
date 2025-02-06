@@ -1,12 +1,14 @@
 import React,{useState,useEffect} from 'react';
+import {useParams} from "react-router-dom";
 import axios from 'axios';
-import{getDatabase,get,ref,remove,update} from "firebase/database";
+import{get,ref,remove, update,set, child} from "firebase/database";
 import database from '../firebase';
 import vegmenu from "../Assessts/vegcartton.jpg";
+import"../App.css"
 
 const VegMenu = () => {
   const[displaydata,Setdisplaydata]=useState([]);
-const[userid,Setuserid]=useState('');
+  const[id,Setid]=useState('');
   const[dishname,Setdishname]=useState('');
   const[code,Setcode]=useState('');
   const[course,Setcourse]=useState('');
@@ -16,6 +18,8 @@ const[userid,Setuserid]=useState('');
   const[desc,Setdesc]=useState('');
   const[price,Setprice]=useState('');
   const[quantity,Setquantity]=useState('');
+
+  
   const submitData=(e)=>{
 
     e.preventDefault();
@@ -89,10 +93,10 @@ const[userid,Setuserid]=useState('');
       }
 
       else{
-        alert("No Data Available");
+        console.log("No Data Available");
       }
     })
-  },[userid])
+  })
 
   const deletedata=(id)=>{
     remove(ref(database,'VegItems/'+id))
@@ -106,26 +110,44 @@ const[userid,Setuserid]=useState('');
     
   }
 
-const UpdateData=()=>{
-  const db = getDatabase();
-  const recordRef = ref(db, 'VegItems/' + userid);
 
-  update(recordRef, {
-    data: code,course,imgpath,imgpath2,imgpath3,quantity,price,dishname,desc
+ const EditData=async(dishname,code,course,imgpath,imgpath2,imgpath3,desc,price,quantity)=>{
+
+  Setdishname(dishname)
+  Setcourse(course)
+  Setquantity(quantity)
+  Setimgpath(imgpath)
+  Setimgpath2(imgpath2)
+  Setimgpath3(imgpath3)
+  Setdesc(desc)
+  Setprice(price)
+  Setcode(code)
+
+ }
+
+
+ const UpdateData=()=>{
+const db=ref(database)
+const record=this.displaydata();
+  const Address= 'VegItems/'+record.id;
+
+  get(child(db,Address)).then(snapshot=>{
+    if(snapshot.exists()){
+      update(ref(db,Address),record.data);
+    }
+
+    else {
+     alert( "Cannot Update Details")
+    }
   })
-  .then(() => {
-    alert('Record updated successfully!');
-  })
 
-  .catch((error) => {
-    console.error('Error updating record:', error);
-  });
-}
- 
+  
+  
+  
+ }
 
 
  
-
 
 
 
@@ -193,6 +215,7 @@ const UpdateData=()=>{
             </div>
                
                <button className='btn btn-outline-success m-3' onClick={submitData}>Submit</button>
+               <button className='btn btn-outline-warning m-3' onClick={UpdateData} >Update Data</button>
             </form>
           </div>
            </div>
@@ -213,15 +236,18 @@ displaydata.map((bat)=>{
    <div className='container-fluid boxsized m-2'>
     <div className='row'>
       <div className='col-md-5 imagedata p-2'>
-        <img src={bat.imgpath} alt=""/>
+        <img  src={bat.imgpath} alt=""/>
+        <img className='m-2 ' src={bat.imgpath2} alt=""/>
+        <img className='m-2 ' src={bat.imgpath3} alt=""/>
       </div>
         
         <div className='col-md-7 p-5'>
             <h4>Dish Name:-{bat.dishname} </h4>
             <h4>Dish Code:-{bat.code} </h4>
+            <h4>Price:-{bat.price} </h4>
             <h4>Course:-{bat.course} </h4>
             <h6>Description:-{bat.desc} </h6>
-            <button className='btn btn-outline-success m-2' onClick={()=>UpdateData}>Edit</button>
+            <button className='btn btn-outline-success m-2' onClick={()=>EditData(bat.dishname,bat.code,bat.course,bat.imgpath,bat.imgpath2,bat.imgpath3,bat.desc,bat.price,bat.quantity)}>Edit</button>
             <button className='btn btn-outline-danger' onClick={()=>deletedata(bat.id)}>Delete</button>
         </div>
    
