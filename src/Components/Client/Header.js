@@ -1,10 +1,23 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import "./App.css";
 import {NavLink} from "react-router-dom";
 import $ from "jquery";
 import logo from "./Assessts/99 Vings.jpg";
 
 const Header = () => {
+
+  const[stickyclass,Setstickyclass]=useState(false);
+
+  useEffect(()=>{
+     
+    const handlescroll=()=>{
+
+      Setstickyclass(window.scrollY > 220)
+    }
+    window.addEventListener('scroll',handlescroll);
+    return ()=>window.removeEventListener('scroll',handlescroll);
+  });
+
 
   useEffect(()=>{
     $(document).on('Click','.navbar-nav',function(e) {
@@ -15,7 +28,7 @@ const Header = () => {
   },[])
 
   return (
-    <div className='container-fluid p-0'>
+    <div className={`${stickyclass ? "sticky":" "} container-fluid p-0`}>
 
  
 <nav className="navbar navbar-expand-lg ">
@@ -35,29 +48,31 @@ const Header = () => {
         <li className="nav-item">
           <NavLink className="nav-link"  to="/Gallery" exact={true} activeClassName="active">Gallery</NavLink>
         </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" exact={true} activeClassName="active">
-            Main Menu
-          </a>
-          <ul className="dropdown-menu">
-            <li><NavLink className="dropdown-item"  to="/Vegitems" exact={true} activeClassName="active">VEG-ITEMS</NavLink></li>
-            <li><NavLink className="dropdown-item"  to="/NonVegItems" exact={true} activeClassName="active">NON-VEG ITEMS</NavLink></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><NavLink className="dropdown-item"  to="/PartyOrders" exact={true} activeClassName="active">PARTY ORDERS</NavLink></li>
-          </ul>
-        </li>
+       
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Main Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <NavLink className="dropdown-item" to="/Vegitems">Veg-Items</NavLink>
+          <NavLink className="dropdown-item" to="/NonVegItems">Non-Veg Items</NavLink>
+          <div className="dropdown-divider"></div>
+          <NavLink className="dropdown-item" to="/PartyOrders">PartyOrders</NavLink>
+        </div>
+      </li>
+
+  
+
+
+
         <li className="nav-item">
-          <NavLink className="nav-link"  exact={true} activeClassName="active"  to="/ContactUs"  >ContactUs</NavLink>
+          <NavLink className="nav-link"  exact={true} activeClassName="active"  to="/ContactUs">ContactUs</NavLink>
         </li>
       </ul>
      
     </div>
   </div>
 </nav>
-
-
-
-
 
     </div>
   )

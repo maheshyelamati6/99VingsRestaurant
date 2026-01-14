@@ -97,6 +97,17 @@ const Partyorders = () => {
    
   }
 
+  const Editdata=async(dishname,code,course,imgpath,imgpath2,imgpath3,desc)=>{
+
+    Setdishname(dishname)
+    Setcode(code)
+    Setcourse(course)
+    Setimgpath(imgpath)
+    Setimgpath2(imgpath2)
+    Setimgpath3(imgpath3)
+    Setdesc(desc)
+  }
+
 
   return (
     <div className='container-fluid p-0'>
@@ -176,7 +187,7 @@ displaydata.map((bat)=>{
             <h4>Dish Code:-{bat.code} </h4>
             <h4>Course:-{bat.course} </h4>
             <h6>Description:-{bat.desc} </h6>
-            <button className='btn btn-outline-success m-2'>Update</button>
+            <button className='btn btn-outline-success m-2' onClick={()=>Editdata(bat.dishname,bat.code,bat.course,bat.imgpath,bat.imgpath2,bat.imgpath3,bat.desc)}>Update</button>
             <button className='btn btn-outline-danger' onClick={()=>deletedata(bat.id)}>Delete</button>
         </div>
    

@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react';
-import {useParams} from "react-router-dom";
 import axios from 'axios';
-import{get,ref,remove, update,set, child} from "firebase/database";
+import{get,ref,remove,update} from "firebase/database";
 import database from '../firebase';
 import vegmenu from "../Assessts/vegcartton.jpg";
-import"../App.css"
+import"../App.css";
+
 
 const VegMenu = () => {
   const[displaydata,Setdisplaydata]=useState([]);
   const[id,Setid]=useState('');
-  const[dishname,Setdishname]=useState('');
+  const[name,Setname]=useState('');
   const[code,Setcode]=useState('');
   const[course,Setcourse]=useState('');
   const[imgpath,Setimgpath]=useState('');
@@ -21,10 +21,8 @@ const VegMenu = () => {
 
   
   const submitData=(e)=>{
-
     e.preventDefault();
-
-      if(dishname.length===0){
+      if(name.length===0){
 
         alert("Dishname is Required");
       }
@@ -41,6 +39,10 @@ const VegMenu = () => {
         alert("Price  is Required");
       }
 
+      else if(quantity.length===0){
+        alert("quantity  is Required");
+      }
+
       else if(desc.length===0){
         alert("Description is Required");
       }
@@ -51,10 +53,10 @@ const VegMenu = () => {
 
       else{
     
-        axios.post("https://vings-43c54-default-rtdb.firebaseio.com/VegItems.json",{dishname,code,course,imgpath,desc,price,quantity,imgpath2,imgpath3})
+        axios.post("https://vings-43c54-default-rtdb.firebaseio.com/VegItems.json",{name,code,course,imgpath,desc,price,quantity,imgpath2,imgpath3})
         .then(()=>{
           alert("Data Posted Successfully!....");
-          Setdishname("");
+          Setname("");
           Setcode("");
           Setcourse("");
           Setimgpath("");
@@ -111,46 +113,56 @@ const VegMenu = () => {
   }
 
 
- const EditData=async(dishname,code,course,imgpath,imgpath2,imgpath3,desc,price,quantity)=>{
-
-  Setdishname(dishname)
+ const EditData=async(name,code,course,quantity,imgpath,imgpath2,imgpath3,price,desc)=>{
+  
+  Setname(name)
+  Setcode(code)
   Setcourse(course)
   Setquantity(quantity)
   Setimgpath(imgpath)
   Setimgpath2(imgpath2)
   Setimgpath3(imgpath3)
-  Setdesc(desc)
   Setprice(price)
-  Setcode(code)
+  Setdesc(desc)
 
  }
 
+ const updateData=(e)=>{
+  e.preventDefault();
+ 
+  update(ref(database,"VegItems/"+id),{
 
- const UpdateData=()=>{
-const db=ref(database)
-const record=this.displaydata();
-  const Address= 'VegItems/'+record.id;
+Dishname:name,
+Dishcode:code,
+Dishcourse:course,
+Quantity:quantity,
+Imgpath1:imgpath,
+Imgpath2:imgpath2,
+imgpath3:imgpath3,
+Price:price,
+Desc:desc
+})
 
-  get(child(db,Address)).then(snapshot=>{
-    if(snapshot.exists()){
-      update(ref(db,Address),record.data);
-    }
-
-    else {
-     alert( "Cannot Update Details")
-    }
+  .then(()=>{
+    alert('Data Updated Successfully.....!');
+    Setname('');
+    Setcourse('');
+    Setcode('');
+    Setimgpath('');
+    Setimgpath2('');
+    Setimgpath3('');
+    Setprice('');
+    Setquantity('');
+    Setdesc('');
   })
 
-  
-  
-  
+
+  .catch((err)=>{
+    alert(err);
+  })
  }
-
-
- 
-
-
-
+  
+  
   return (
     <div className='container-fluid p-0'>
         <h4>VegMenu</h4>
@@ -160,7 +172,7 @@ const record=this.displaydata();
           <form>
             <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Enter Dish Name</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={dishname} onChange={(e)=>Setdishname(e.target.value)}/>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value={name} onChange={(e)=>Setname(e.target.value)}/>
             </div>
 
             <div class="input-group input-group-sm mb-3">
@@ -179,7 +191,7 @@ const record=this.displaydata();
 </div>
 
 <div class="input-group mb-3">
-  <label class="input-group-text" for="inputGroupSelect01">Enter Course</label>
+  <label class="input-group-text" for="inputGroupSelect01">Enter Quantity</label>
   <select class="form-select" id="inputGroupSelect01" value={quantity} onChange={(e)=>Setquantity(e.target.value)}>
     <option selected>Choose...</option>
     <option value="Half-plate">Half-Plate</option>
@@ -215,7 +227,7 @@ const record=this.displaydata();
             </div>
                
                <button className='btn btn-outline-success m-3' onClick={submitData}>Submit</button>
-               <button className='btn btn-outline-warning m-3' onClick={UpdateData} >Update Data</button>
+               <button className='btn btn-outline-warning m-3' onClick={updateData} >Update Data</button>
             </form>
           </div>
            </div>
@@ -242,12 +254,13 @@ displaydata.map((bat)=>{
       </div>
         
         <div className='col-md-7 p-5'>
-            <h4>Dish Name:-{bat.dishname} </h4>
+            <h4>Dish Name:-{bat.name} </h4>
             <h4>Dish Code:-{bat.code} </h4>
             <h4>Price:-{bat.price} </h4>
+            <h4>Quantity:-{bat.quantity} </h4>
             <h4>Course:-{bat.course} </h4>
             <h6>Description:-{bat.desc} </h6>
-            <button className='btn btn-outline-success m-2' onClick={()=>EditData(bat.dishname,bat.code,bat.course,bat.imgpath,bat.imgpath2,bat.imgpath3,bat.desc,bat.price,bat.quantity)}>Edit</button>
+            <button className='btn btn-outline-success m-2' onClick={()=>EditData(bat.name,bat.code,bat.course,bat.Quantityuantity,bat.imgpath,bat.imgpath2,bat.imgpath3,bat.price,bat.desc)}>Edit</button>
             <button className='btn btn-outline-danger' onClick={()=>deletedata(bat.id)}>Delete</button>
         </div>
    

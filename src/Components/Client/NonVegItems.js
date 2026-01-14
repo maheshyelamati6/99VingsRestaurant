@@ -80,24 +80,27 @@ const NonVegItems = () => {
          </div>
         </div>
       ):(
-        <div className='card-section m-2'>
+       
+        <div className='tablegrid'>
+           <div className='card-section m-2'>
 
-        <div className="imgsection">
-        <h6 className='indexes'>{index+1}</h6>
-         <NavLink to={`/NonVegitemss/${bat.id}`} target="_blank" >
-         <img src={bat.imgpath} alt=""/>
-         </NavLink>
-        </div>
-        
-        
-        <div className='p-4'>
-          <h6>Course: {bat.course}</h6>
-          <h6>Dish Name: {bat.dishname}</h6>
-          <h6>Dish Code: {bat.code}</h6>
-          <h6>Quantity: {bat.quantity}</h6>
-          <h6>Price: {bat.price}</h6>
-          
-        </div>
+<div className="imgsection">
+<h6 className='indexes'>{index+1}</h6>
+ <NavLink to={`/NonVegitemss/${bat.id}`} target="_blank" >
+ <img src={bat.imgpath} alt=""/>
+ </NavLink>
+</div>
+
+
+<div className='p-4'>
+  <h6>Course: {bat.course}</h6>
+  <h6>Dish Name: {bat.dishname}</h6>
+  <h6>Dish Code: {bat.code}</h6>
+  <h6>Quantity: {bat.quantity}</h6>
+  <h6>Price: {bat.price}</h6>
+  
+</div>
+</div>
         </div>
       )
      }

@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import { CCarousel, CCarouselItem, CImage,CNavLink,CButton } from '@coreui/react';
 import "./App.css";
@@ -19,7 +18,7 @@ import imga4 from "./Assessts/img4.gif";
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 const Homepage = () => {
-  const [userLocation, setUserLocation] = useState(null);
+  
   const[show,Setshow]=useState(true);
   const handleClose= ()=>Setshow(false);
  
@@ -33,41 +32,17 @@ const Homepage = () => {
       }
     },[]);
 
-
-
-  const getUserLocation = () => {
-    // if geolocation is supported by the users browser
-    if (navigator.geolocation) {
-      // get the current users location
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // save the geolocation coordinates in three variables
-          const { latitude, longitude } = position.coords;
-             axios.post("https://vings-43c54-default-rtdb.firebaseio.com/Location.json",{latitude,longitude})
-          setUserLocation({ latitude, longitude});
-        },
-        // if there was an error getting the users location
-        (error) => {
-          console.error('Error getting user location:', error);
-        }
-      );
-    }
-    // if geolocation is not supported by the users browser
-    else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  };
-
   return (
 
-    <div>
+    <>
+     <div>
 
 <div className='container Mmodal' >
 
    <Modal show={show} onHide={handleClose} id="myModal">
    <div className='col-md-1'>
           </div>
-        <Modal.Header closeButton onClick={getUserLocation}>
+        <Modal.Header closeButton>
           
           <Modal.Title>
             Welcome to 99 Mandi Restaurant</Modal.Title>
@@ -250,6 +225,9 @@ we always prioritize quality.</h6>
 </div>
 
     </div>
+    </>
+
+   
   )
 }
 

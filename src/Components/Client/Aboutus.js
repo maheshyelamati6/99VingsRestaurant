@@ -25,9 +25,7 @@ const Aboutus = () => {
        <CBreadcrumbItem>AboutUs</CBreadcrumbItem>
       </CBreadcrumb>
        </div>
-        <div data-testid="Started">
-        <h4>AboutUs Started</h4>
-        </div>
+        
        <h2 className='textheader p-2'>How We Started</h2>
        <div className='underline p-0 '></div>
        <div className='underline1 py-1'></div>

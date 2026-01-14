@@ -40,6 +40,10 @@ const NonVegMenu = () => {
         alert(" Price Amount is Required");
       }
 
+      else if(quantity.length===0){
+        alert(" quantity is Required");
+      }
+
       else if(desc.length===0){
         alert("Description is Required");
       }
@@ -107,6 +111,19 @@ const NonVegMenu = () => {
    
   }
 
+
+  const Editdata=async(dishname,code,course,quantity,price,imgpath,imgpath2,imgpath3,desc)=>{
+    Setdishname(dishname)
+    Setcode(code)
+    Setcourse(course)
+    Setquantity(quantity)
+    Setprice(price)
+    Setimgpath(imgpath)
+    Setimgpath2(imgpath2)
+    Setimgpath3(imgpath3)
+    Setdesc(desc)
+
+  }
 
   return (
     <div className='container-fluid p-0'>
@@ -206,7 +223,7 @@ const NonVegMenu = () => {
                         <h4>Dish Code:-{bat.code} </h4>
                         <h4>Course:-{bat.course} </h4>
                         <h6>Description:-{bat.desc} </h6>
-                        <button className='btn btn-outline-success m-2'>Update</button>
+                        <button className='btn btn-outline-success m-2' onClick={()=>Editdata(bat.dishname,bat.code,bat.course,bat.quantity,bat.price,bat.imgpath,bat.imgpath2,bat.imgpath3,bat.desc)}>Edit</button>
                         <button className='btn btn-outline-danger'onClick={()=>deletedata(bat.id)} >Delete</button>
                     </div>
                

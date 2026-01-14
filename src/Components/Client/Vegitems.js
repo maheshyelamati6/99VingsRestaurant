@@ -53,7 +53,7 @@ console.log(err);
        <div className='bread p-0'>
              <CBreadcrumb>
              <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-             <CBreadcrumbItem >Vegitems</CBreadcrumbItem>
+             <CBreadcrumbItem >Veg-Items</CBreadcrumbItem>
             </CBreadcrumb>
              </div>
 
@@ -85,9 +85,10 @@ displaydata.filter((bat)=>{
     
 
     ):
-      <div className='card-section m-2'>
+      <>
+        <div className='card-section m-2'>
 
-    <h6 className='indexes'>{index+1}</h6>
+<h6 className='indexes'>{index+1}</h6>
 <div className="imgsection p-2">
 <NavLink to={`/Vegitemss/${bat.id}`} target="_blank">
 <img src={bat.imgpath} alt=""/>
@@ -95,15 +96,16 @@ displaydata.filter((bat)=>{
 </div>     
 
 
-<div className='p-2'>
-<h6>Course:{bat.course}</h6>
-<h6>Dish Name:{bat.dishname}</h6>
-<h6>Dish Code:{bat.code}</h6>
-<h6>Quantity:{bat.quantity}</h6>
-<h6>Price:{bat.price}</h6>
+<div className='p-4'>
+<h6>Course: {bat.course}</h6>
+<h6>Dish Name: {bat.name}</h6>
+<h6>Dish Code: {bat.code}</h6>
+<h6>Quantity: {bat.quantity}</h6>
+<h6>Price: {bat.price}</h6>
 </div>
 
 </div>
+      </>
     
     
   }
